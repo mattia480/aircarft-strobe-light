@@ -1,12 +1,3 @@
-# New Help Medicina del Lavoro - Server Tools
- ![Mantained](https://img.shields.io/badge/maintained-YES-brightgreen.svg?style=for-the-badge) ![License](https://img.shields.io/badge/license-NEW_HELP-orange.svg?style=for-the-badge)
-
-###### In questo repository sono contenute le configurazioni di:
-- Sistema Operativo (OS) 
-- Apache (Middleware)
-- PHP (Web Server Engine)
-- MySQL (DBMS)
-
 # Arduino Strobe Light Circuit and Diagram for Ultralight Aircraft
 
 This repository contains a simple blueprint, including schematics, diagrams and code for the installation of LED strobe lights (winglets and tail) on ultralight aircraft classified as experimental for general aviation.

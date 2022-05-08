@@ -5,13 +5,13 @@
  * @author      Current authors: Ing. Mattia Bernasconi <mattia@studiobernasconi.com>
  *              Original author: Ing. Mattia Bernasconi <mattia@studiobernasconi.com>
  * 
- * @versione    1.1.0
+ * @versione    1.1.1
  *
  * @license     GNU General Public License v3.0
  *
  * @link        Homepage: http://www.mattiabernasconi.it
  * 
- * @date        2022-04-09
+ * @date        2022-05-08
  * 
  * If "MULTI_MODE_ENABLED" variable is set to true, by powering on and off the device quickly (1.5 second), we can change the operating mode
  * Mode 1 (Standard) -> Wingtip flash "WINGTIP_STROBE_NUM" and Tail flash "TAIL_STROBE_NUM" every "TIME_BETWEEN_STROBE" millis
@@ -28,7 +28,7 @@
  * Serial enabled at baude rate 9600
  */
 
-//#define DEBUG //Remove initial comment to enable debug mode
+#define DEBUG //Remove initial comment to enable debug mode
 
 // Include the Arduino's internal EEPROM Libray
 #include <EEPROM.h>
@@ -51,7 +51,7 @@
 // Set user editable variables
 const bool MULTI_MODE_ENABLED = true; // Enable multi mode switching by power
 const bool TEMP_CHECK_ENABLED = true; // Enable system temperature check
-const float TEMP_ERROR = 50.0; // Temperature to put the system in protection mode
+const float TEMP_ERROR = 60.0; // Temperature to put the system in protection mode
 const int MODE2_TAIL_BRIGHTNESS = 22; // Brightness of Tail light (0-255)
 const int WINGTIP_STROBE_NUM = 2; // Number of Wingtip flash
 const int TAIL_STROBE_NUM = 1; // Number of Tail flash
@@ -217,22 +217,6 @@ void setup() {
       delay(150);
     }
   }
-
-  // Check DHT Sensor
-  if (dht.read(true) != 0) {
-    Serial.println("DHT device OK!");
-    Serial.print("DHT Error counter read from EEPROM: ");
-    Serial.println(i2cReadEEPROM(TEMP_ERROR_EEPROM_ADDRESS));
-  } else {
-    Serial.println("DHT device not found!");
-    // Tone 6 time to declare DHT device error 
-    for (int i = 0; i < 6; i++) {
-      digitalWrite(buzzer, HIGH);
-      delay(150);
-      digitalWrite(buzzer, LOW);
-      delay(150);
-    }
-  }
   
   // If multi mode enabled save and read state to/from EEPROM
   if (MULTI_MODE_ENABLED) {
@@ -261,6 +245,24 @@ void setup() {
       // After 1 second we can safely put to mode 0 (standard)
       delay(1100);
       EEPROM.update(MULTI_MODE_EEPROM_ADDR, 0);
+    }
+  } else {
+    delay(500); // Fix DHT startup on Nano Every
+  }
+
+  // Check DHT Sensor
+  if (dht.read(true) != 0) {
+    Serial.println("DHT device OK!");
+    Serial.print("DHT Error counter read from EEPROM: ");
+    Serial.println(i2cReadEEPROM(TEMP_ERROR_EEPROM_ADDRESS));
+  } else {
+    Serial.println("DHT device not found!");
+    // Tone 6 time to declare DHT device error 
+    for (int i = 0; i < 6; i++) {
+      digitalWrite(buzzer, HIGH);
+      delay(150);
+      digitalWrite(buzzer, LOW);
+      delay(150);
     }
   }
 

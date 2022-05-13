@@ -28,7 +28,7 @@
  * Serial enabled at baude rate 9600
  */
 
-#define DEBUG //Remove initial comment to enable debug mode
+#define DEBUG // Comment to remove serial debug messages
 
 // Include the Arduino's internal EEPROM Libray
 #include <EEPROM.h>
@@ -68,7 +68,7 @@ int MULTI_MODE_EEPROM_ADDR = 0; // Multi mode EEPROM address
 int dht_error = 0; // DHT error
 int TEMP_ERROR_EEPROM_ADDRESS = 500; //EEPROM Address used to count DHT error
 
-//Initialize DHT sensor for normal 16mhz Arduino
+// Initialize DHT sensor for normal 16mhz Arduino
 DHT dht(DHTPIN, DHTTYPE);
 
 // Function to write to I2C EEPROOM
@@ -91,7 +91,7 @@ void i2cWriteEEPROM(int address, byte val)
   delay(5);
 }
 
-// Function to write to I2C EEPROOM
+// Function to read from I2C EEPROOM
 byte i2cReadEEPROM(int address)
 {
   // Define byte for received data
@@ -117,7 +117,7 @@ byte i2cReadEEPROM(int address)
   return rcvData;
 }
 
-// Function to check external temp and block the system if over TEMP_ERROR user's value
+// Function to check external temp and block the system if temp is over TEMP_ERROR user's value
 void tempCheck() {
   // First temperature and humidity read
   float hum = dht.readHumidity();
@@ -168,7 +168,7 @@ void tempCheck() {
     digitalWrite(buzzer, LOW);
   }
   
-  //Print temp and humidity values to serial monitor if debug enabled
+  // Print temp and humidity values to serial monitor if debug enabled
   #ifdef DEBUG
   Serial.print("Humidity: ");
   Serial.print(hum);
@@ -284,7 +284,7 @@ void loop() {
   // Arduino LED On
   digitalWrite(LED_BUILTIN, HIGH);
 
-  // Check temperature before flash if enabled or if is disabled by user
+  // Check temperature before flash (if enabled)
   if (TEMP_CHECK_ENABLED && multi_mode_selector != 3)
     tempCheck();
   

@@ -18,16 +18,10 @@ Gerber files are available for download within the repository.
 ![Components](https://github.com/mattia480/aircarft-strobe-light/blob/main/aero-strobe-components.png?raw=true)
 
 #### Top PCB Design
-![Top PCB Design](https://github.com/mattia480/aircarft-strobe-light/blob/main/top-pcb-design.png?raw=true)
+![PCB Design](https://github.com/mattia480/aircarft-strobe-light/blob/main/pcb-design.png?raw=true)
 
 #### Top PCB Front Side
-![Top PCB Front Side](https://github.com/mattia480/aircarft-strobe-light/blob/main/top-pcb-front-side.png?raw=true)
+![PCB Front Side](https://github.com/mattia480/aircarft-strobe-light/blob/main/pcb-front-side.png?raw=true)
 
 #### Top PCB Back Side
-![Top PCB Back Side](https://github.com/mattia480/aircarft-strobe-light/blob/main/top-pcb-back-side.png?raw=true)
-
-#### Side PCB Design
-![Side PCB Design](https://github.com/mattia480/aircarft-strobe-light/blob/main/side-pcb-design.png?raw=true)
-
-#### Side PCB
-![Side PCB](https://github.com/mattia480/aircarft-strobe-light/blob/main/side-pcb.png?raw=true)
+![PCB Back Side](https://github.com/mattia480/aircarft-strobe-light/blob/main/pcb-back-side.png?raw=true)

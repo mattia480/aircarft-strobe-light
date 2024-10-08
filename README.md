@@ -25,3 +25,10 @@ Gerber files are available for download within the repository.
 
 #### Top PCB Back Side
 ![PCB Back Side](https://github.com/mattia480/aircarft-strobe-light/blob/star-company-lights/pcb-back-side.png?raw=true)
+
+#### Original lights
+![Original lights](https://github.com/mattia480/aircarft-strobe-light/blob/star-company-lights/original_light1.png?raw=true)
+![Original lights](https://github.com/mattia480/aircarft-strobe-light/blob/star-company-lights/original_light2.png?raw=true)
+
+#### Original measurements
+![Original measurements](https://github.com/mattia480/aircarft-strobe-light/blob/star-company-lights/original_light_measurements.png?raw=true)

@@ -19,7 +19,7 @@
 #define DEBUG // Comment to remove serial debug messages
 
 // Set user editable variables
-const int NAVIGATION_BRIGHTNESS = 115; // Brightness of Tail light (0-255)
+const int NAVIGATION_BRIGHTNESS = 115; // Brightness of Navigation lights (0-255) - 115≈11V with 13.8V on Vin
 const int WINGTIP_STROBE_NUM = 2; // Number of Wingtip flash
 const int TAIL_STROBE_NUM = 1; // Number of Tail flash
 const int TIME_BETWEEN_STROBE = 1800; // Time between flashes (in millis)
@@ -47,7 +47,7 @@ void setup() {
 
   Serial.println("System startup complete!");
 
-  // Navigation light to 11V (With 13.8V on Vin)
+  // Switch on Navigation lights
   analogWrite(navigation, NAVIGATION_BRIGHTNESS);
 }
 
